@@ -122,10 +122,10 @@ class PSF(object):
                 if isinstance(self._psf_variance_map, jax.Array) or isinstance(
                     kernel_point_source, jax.Array
                 ):
-                    psf_var = np.asarray(self._psf_variance_map)
-                    kernel = np.asarray(kernel_point_source)
+                    psf_var = np.array(self._psf_variance_map)
+                    kernel = np.array(kernel_point_source)
                     psf_var /= np.sum(kernel) ** 2
-                    self._psf_variance_map = np.asarray(psf_var)
+                    self._psf_variance_map = psf_var
                 else:
                     self._psf_variance_map /= np.sum(kernel_point_source) ** 2
             self.psf_variance_map_bool = True
